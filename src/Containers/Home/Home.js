@@ -23,7 +23,7 @@ const Home = props => {
   const navigate = useNavigate();
 
   const handleHome = () => {
-    navigate('/');
+    navigate('/dare-to-roll/');
   }
 
   return (
