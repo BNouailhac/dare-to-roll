@@ -1,0 +1,193 @@
+.card {
+    background-color: #202020;
+    grid-column: auto;
+    border: 1px transparent;
+    border-radius: 12px;
+    transition: 0.3s all;
+    position: relative;
+    max-width: 370px;
+    padding-bottom: 56.25%;
+}
+
+.cardHome {
+    background-color: #202020;
+    grid-column: auto;
+    border: 1px transparent;
+    border-radius: 12px;
+    transition: 0.3s all;
+    position: absolute;
+    width: 285px;
+    left: 25.95%;
+    top: 35.25%;
+}
+
+.cardHome:hover {
+    background-color: #2d2d2d;
+    transform: scale(1.015);
+}
+
+.cardHome:active {
+    transform: scale(0.975);
+}
+
+.cardHome img {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    max-width: 100%;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.cardHome div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 15px 3px 7px;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: #2d2d2d;
+    transform: scale(1.015);
+}
+
+.card:active {
+    transform: scale(0.975);
+}
+
+.card img {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    max-width: 100%;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.card div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 15px 3px 7px;
+}
+
+.name {
+    font-size: 23px;
+}
+
+.desc {
+    font-size: 18px;
+    padding-right: 20px;
+}
+
+.desc,
+.name {
+    color: white;
+    padding-left: 14px;
+    font-family: "GT Bold";
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.desc,
+.name,
+.img {
+    cursor: pointer;
+}
+
+.price {
+    color: white;
+    font-family: "GT Medium";
+}
+
+.price div {
+    color: #999;
+}
+
+@media screen and (max-width: 1700px) {
+    .desc,
+    .name {
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .name {
+        font-size: 30px;
+    }
+
+    .desc {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    .name {
+        font-size: 25px;
+    }
+
+    .desc {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .name {
+        font-size: 22px;
+    }
+
+    .desc {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .name {
+        font-size: 30px;
+    }
+    
+    .desc {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .name {
+        font-size: 40px;
+    }
+
+    .desc {
+        font-size: 35px;
+    }
+
+    .card img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .name {
+        font-size: 34px;
+    }
+
+    .desc {
+        font-size: 29px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .name {
+        font-size: 26px;
+    }
+
+    .desc {
+        font-size: 21px;
+    }
+}
+
+
