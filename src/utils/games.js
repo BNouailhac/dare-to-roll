@@ -17,7 +17,6 @@ const games = [
         Language: 'Français',
         inCart: false,
         selected: false,
-        isHovered: false,
         id: 0,
         cover: "https://cdn2.philibertnet.com/361567-large_default/citadelles-edition-classique.jpg",
         footage: [

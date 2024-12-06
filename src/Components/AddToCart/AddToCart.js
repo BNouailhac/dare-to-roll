@@ -5,14 +5,13 @@ import { ReactComponent as Add } from "../../Resources/image/add.svg";
 const AddToCart = props => {
     const {
         game,
-        handleHoverGame,
         handleAddToCart
     } = props;
 
     return (
-          <div className={styles.addToCart} onMouseEnter={handleHoverGame} onMouseLeave={handleHoverGame} id={game.id} onClick={handleAddToCart}>
-            <h4 style={{ color: game.isHovered ? "#92f" : "#999" }}>Add to cart</h4>
-            <Add className={styles.add} style={{ fill: game.isHovered ? "#92f" : "#999" }} />
+          <div className={styles.addToCart} id={game.id} onClick={handleAddToCart}>
+            <h4 style={{ color: "#999" }}>Add to cart</h4>
+            <Add className={styles.add} style={{ fill: "#999" }} />
           </div>
     );
   }

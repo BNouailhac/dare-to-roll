@@ -12,8 +12,6 @@ const Cart = props => {
         handleOpenCart,
         handleCloseCart,
         cartDisplayed,
-        handleHover,
-        hoverState,
         clearCart,
         handleRemoveFromCart,
         openGamePage
@@ -82,15 +80,13 @@ const Cart = props => {
                                 <h3>Total: ${newTotal}</h3>
                                 <button 
                                   id="24" 
-                                  onMouseEnter={handleHover} 
-                                  onMouseLeave={handleHover} 
-                                  style={{ color: hoverState[24].hovered ? "#92f" : "#fff" }} 
+                                  style={{ color: "#fff" }} 
                                   aria-label="Checkout"
                                 >
                                     Checkout
                                     <Right 
                                       className={styles.right}
-                                      style={{ fill: hoverState[24].hovered ? "#92f" : "#fff" }}
+                                      style={{ fill: "#fff" }}
                                     />
                                 </button>
                         </div>

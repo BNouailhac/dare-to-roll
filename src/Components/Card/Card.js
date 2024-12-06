@@ -8,9 +8,6 @@ const Card = props => {
     const { 
         game,
         handleAddToCart,
-        handleHover,
-        hoverState,
-        handleHoverGame,
         handleSelectGame
       } = props;
 
@@ -22,7 +19,7 @@ const Card = props => {
 
     return (
           <motion.div
-            className={hoverState[1].selected === false ? styles.card : styles.cardHome}
+            className={styles.card}
             onClick={handleSelectGame}
             id={game.id}
             style={{ margin: 0, padding: 0 }}
@@ -33,12 +30,9 @@ const Card = props => {
           >
             <img src={game.cover} className={styles.img} alt="Game Cover Image" />
     
-            
-            
             <div className={styles.price}>
                 {/*{game.inCart ? <AddedToCart /> : <AddToCart 
-                                      game={game} 
-                                      handleHoverGame={handleHoverGame} 
+                                      game={game}
                                       handleAddToCart={handleAddToCart} 
                                     />
                 }*/}

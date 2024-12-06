@@ -9,7 +9,6 @@ const templateGame = {
     publishers: 'None',
     inCart: false,
     selected: false,
-    isHovered: false,
     id: 33,
     cover: "https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658843471/questionmark_wzexkq.png",
     footage: [

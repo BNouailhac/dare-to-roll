@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 
 const NavBar = props => { 
     const {
-        handleHover,
-        hoverState,
         handleHome,
         cart,
         cartAmount,
@@ -29,8 +27,6 @@ const NavBar = props => {
       >
         <div className={styles.navbar_left}>
             <div className={styles.logodiv} id="0"
-              onMouseEnter={handleHover}
-              onMouseLeave={handleHover}
               onClick={handleHome}
             >
               <Logo className={styles.svg} style={{ fill: "#fff" }}/>
@@ -45,8 +41,6 @@ const NavBar = props => {
             <div 
               className={styles.cartdiv} 
               id="3"
-              onMouseEnter={handleHover}
-              onMouseLeave={handleHover}
               onClick={handleOpenCart}
             >
                 <Cart 

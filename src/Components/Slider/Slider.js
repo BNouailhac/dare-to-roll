@@ -14,8 +14,6 @@ const Slider = props => {
     allGames,
     carouselState,
     setCarouselState,
-    hoverState,
-    handleHover
   } = props;
 
   const slideRef = React.createRef();
@@ -98,26 +96,22 @@ const Slider = props => {
               className={styles.backwards} 
               onClick={back} 
               id="22" 
-              onMouseEnter={handleHover} 
-              onMouseLeave={handleHover} 
               aria-label="Previous Picture"
             >
                 <Left 
                   className={styles.left} 
-                  style={{ fill: hoverState[22].hovered ? "#fff" : "#ccc" }}
+                  style={{ fill: "#ccc" }}
                 />
             </button>
     
             <button 
               className={styles.forward} 
               onClick={next} id="23" 
-              onMouseEnter={handleHover} 
-              onMouseLeave={handleHover} 
               aria-label="Next Picture"
             >
                 <Right
                   className={styles.right} 
-                  style={{ fill: hoverState[23].hovered ? "#fff" : "#ccc" }}
+                  style={{ fill: "#ccc" }}
                 />
             </button>
             <div className={styles.selectorContainer}>

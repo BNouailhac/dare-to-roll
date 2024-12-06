@@ -16,23 +16,11 @@ const Home = props => {
     clearCart,
     handleAddToCart,
     handleRemoveFromCart,
-    handleHoverGame,
     handleSelectGame,
-    hoverState,
-    setHoverState,
     openGamePage
   } = props;
 
   const navigate = useNavigate();
-
-  const handleHover = (e) => {
-    let newHoverState = hoverState[e.target.id] || {hovered: false, selected: false};
-    newHoverState.hovered = !newHoverState.hovered;
-
-    setHoverState([
-        ...hoverState, hoverState[e.target.id] = newHoverState
-    ]);
-  }
 
   const handleHome = () => {
     navigate('/');
@@ -46,8 +34,6 @@ const Home = props => {
               handleCloseCart={handleCloseCart}
               cart={cart}
               cartAmount={cartAmount}
-              handleHover={handleHover}
-              hoverState={hoverState}
               clearCart={clearCart}
               handleRemoveFromCart={handleRemoveFromCart}
               openGamePage={openGamePage}
@@ -59,8 +45,6 @@ const Home = props => {
                 </video>
 
                 <NavBar 
-                  handleHover={handleHover}
-                  hoverState={hoverState}
                   handleHome={handleHome}
                   cartAmount={cartAmount}
                   handleOpenCart={handleOpenCart}
@@ -83,10 +67,8 @@ const Home = props => {
                         <Card 
                           game={games[games.length - 1]} 
                           key={games[games.length - 1].name} 
-                          handleHoverGame={handleHoverGame}
                           handleAddToCart={handleAddToCart} 
                           handleSelectGame={handleSelectGame}
-                          hoverState={hoverState}
                         />
                       </div>
                     </div>

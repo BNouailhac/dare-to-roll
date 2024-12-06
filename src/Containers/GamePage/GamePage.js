@@ -18,8 +18,6 @@ import Tooltip from '@mui/material/Tooltip';
 
 const GamePage = props => {
   const {
-    handleHover,
-    hoverState,
     handleHome,
     landingPage,
     cartAmount,
@@ -47,16 +45,12 @@ const GamePage = props => {
               handleCloseCart={handleCloseCart}
               cart={cart}
               cartAmount={cartAmount}
-              handleHover={handleHover}
-              hoverState={hoverState}
               clearCart={clearCart}
               handleRemoveFromCart={handleRemoveFromCart}
               openGamePage={openGamePage}
             /> : null}
 
             <NavBar
-              handleHover={handleHover}
-              hoverState={hoverState}
               handleHome={handleHome}
               landingPage={landingPage}
               cartAmount={cartAmount}
@@ -68,15 +62,13 @@ const GamePage = props => {
               <div className={styles.gamepageContent}>
                 <header>
                     <button 
-                      style={{ color: hoverState[19].hovered ? "#92f" : "#cccccc" }} 
+                      style={{ color: "#cccccc" }} 
                       className={styles.goBack}
-                      onMouseEnter={handleHover}
-                      onMouseLeave={handleHover}
                       onClick={handleHome}
                       id="19"
                       aria-label='Back'
                     >
-                        <Arrow style={{ fill: hoverState[19].hovered ? "#92f" : "#cccccc" }} className={styles.arrow} />
+                        <Arrow style={{ fill: "#cccccc" }} className={styles.arrow} />
                     </button>
                     <h1>{selectedGame ? selectedGame.name : templateGame.name}</h1>
                 </header>
@@ -88,8 +80,6 @@ const GamePage = props => {
                     allGames={allGames}
                     carouselState={carouselState}
                     setCarouselState={setCarouselState}
-                    hoverState={hoverState}
-                    handleHover={handleHover}
                   />}
                   <div className={styles.gameInfo}>
                     <div className={styles.about}>
@@ -148,32 +138,28 @@ const GamePage = props => {
                       {selectedGame ? selectedGame.inCart ? <AddedToCartBig /> : 
                       <button 
                         id="21" 
-                        onMouseEnter={handleHover} 
-                        onMouseLeave={handleHover} 
                         className={styles.addToCartButton}
-                        style={{ color: hoverState[21].hovered ? "#92f" : "#999999" }} 
+                        style={{ color: "#999999" }} 
                         onClick={handleAddToCart} 
                         aria-label="Add"
                       >
                         Add to cart
                         <Add 
                           className={styles.add} 
-                          style={{ fill: hoverState[21].hovered ? "#92f" : "#999999" }}
+                          style={{ fill: "#999999" }}
                         />
                       </button> : 
 
                       <button 
                         id="21" 
-                        onMouseEnter={handleHover} 
-                        onMouseLeave={handleHover} 
-                        style={{ color: hoverState[21].hovered ? "#D2042D" : "#999999" }} 
+                        style={{ color: "#999999" }} 
                         onClick={handleAddToCart} 
                         aria-label="Add"
                       >
                         Not available
                         <Add 
                           className={styles.add} 
-                          style={{ fill: hoverState[21].hovered ? "#D2042D" : "#999999" }}
+                          style={{ fill: "#999999" }}
                         />
                       </button>}*/}
                     </div>

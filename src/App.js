@@ -13,108 +13,6 @@ function App() {
   const [cartAmount, setCartAmount] = useState(0);
   const [cartDisplayed, setCartDisplayed] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
-  const [hoverState, setHoverState] = useState([
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-        hovered: false,
-        selected: false
-    },
-    {
-      hovered: false,
-      selected: false
-    },
-    {
-      hovered: false,
-      selected: false
-    },
-    {
-      hovered: false,
-      selected: false
-    },
-    {
-      hovered: false,
-      selected: false
-    },
-    {
-      hovered: false,
-      selected: false
-    },
-    {
-      hovered: false,
-      selected: false
-    }
-  ]);
 
 const navigate = useNavigate();
 const location = useLocation();
@@ -131,7 +29,6 @@ if (location.pathname !== "/dare-to-roll/" && selectedGame === false) {
 
 const handleHome = () => {
   setCartDisplayed(false);
-  setHoverState([...hoverState, hoverState[21].hovered = false]);
   navigate('/dare-to-roll/');
 }
 
@@ -153,36 +50,6 @@ const openGamePage = (e) => {
   setCartDisplayed(false);
   let selectedGameSurname = e.target.id;
   navigate(`/dare-to-roll/games/${selectedGameSurname}`);
-}
-
-const handleHover = (e) => {
-  if (hoverState[e.target.id]?.selected) {
-    return;
-  }
-
-  let newHoverState = hoverState.map((element, i) => {
-    if (e.target.id === i) {
-      element.hovered = !element.hovered;
-      return element
-    } else {
-      return element;
-    }
-  });
-    
-  setHoverState(newHoverState);
-}
-
-const handleHoverGame = (e) => {
-  let handledHoveredGame = allGames.map((game, i) => {
-    if (e.target.id === i) {
-      game.isHovered = !game.isHovered
-      return game
-    } else {
-      return game;
-    }
-  });
-
-  setAllGames(handledHoveredGame);
 }
 
 const handleAddToCart = (e) => {
@@ -207,15 +74,9 @@ const clearCart = () => {
   setCartAmount(0);
   const defaultGames = allGames.map((game, i) => {
     game.inCart = false;
-    game.isHovered = false;
     return game;
   });
   setAllGames(defaultGames);
-  let newHoverState = hoverState[21] || {hovered: false, selected: false};
-  newHoverState.hovered = false;
-  setHoverState([
-    ...hoverState, hoverState[21] = newHoverState
-  ]);
 }
 
 const handleRemoveFromCart = (e) => {
@@ -223,7 +84,6 @@ const handleRemoveFromCart = (e) => {
   let newAllGames = allGames.map((game, i) => {
     if (game.id === e.target.id) {
       game.inCart = false;
-      game.isHovered = false;
       return game;
     } else {
       return game;
@@ -235,7 +95,6 @@ const handleRemoveFromCart = (e) => {
   let addedUp = firstHalf.concat(secondHalf);
   setCart(addedUp);
   setCartAmount(cartAmount - 1)
-  setHoverState([...hoverState, hoverState[21].hovered = false]);
 }
 
 const handleOpenCart = () => {
@@ -258,8 +117,6 @@ useEffect(() => {
       <AnimatePresence exitBeforeEnter>
           <Routes key={location.pathname} location={location}>
             <Route path="/dare-to-roll/" element={<Home 
-                                        handleHover={handleHover} 
-                                        hoverState={hoverState} 
                                         cart={cart}
                                         cartAmount={cartAmount}
                                         cartDisplayed={cartDisplayed}
@@ -267,23 +124,18 @@ useEffect(() => {
                                         handleCloseCart={handleCloseCart}
                                         clearCart={clearCart}
                                         handleAddToCart={handleAddToCart}
-                                        handleHoverGame={handleHoverGame}
                                         handleSelectGame={handleSelectGame}
                                         handleRemoveFromCart={handleRemoveFromCart}
-                                        setHoverState={setHoverState}
                                         openGamePage={openGamePage}
                                       />} />
             <Route path="/dare-to-roll/games/:gameId" element={<GamePage
                                                cart={cart}
                                                cartAmount={cartAmount}
-                                               handleHover={handleHover}
-                                               hoverState={hoverState}
                                                handleAddToCart={handleAddToCart}
                                                handleSelectGame={handleSelectGame} 
                                                selectedGame={selectedGame}
                                                setSelectedGame={setSelectedGame}
                                                handleHome={handleHome}
-                                               setHoverState={setHoverState}
                                                allGames={allGames}
                                                cartDisplayed={cartDisplayed}
                                                handleOpenCart={handleOpenCart}
@@ -298,9 +150,7 @@ useEffect(() => {
                             handleOpenCart={handleOpenCart}
                             cartAmount={cartAmount}
                             clearCart={clearCart}
-                            hoverState={hoverState}
                             handleHome={handleHome}
-                            handleHover={handleHover}
                             cart={cart}
                             handleRemoveFromCart={handleRemoveFromCart}
                             openGamePage={openGamePage}

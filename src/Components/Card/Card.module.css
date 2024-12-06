@@ -9,46 +9,6 @@
     padding-bottom: 56.25%;
 }
 
-.cardHome {
-    background-color: #202020;
-    grid-column: auto;
-    border: 1px transparent;
-    border-radius: 12px;
-    transition: 0.3s all;
-    position: absolute;
-    width: 285px;
-    left: 25.95%;
-    top: 35.25%;
-}
-
-.cardHome:hover {
-    background-color: #2d2d2d;
-    transform: scale(1.015);
-}
-
-.cardHome:active {
-    transform: scale(0.975);
-}
-
-.cardHome img {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    max-width: 100%;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
-
-.cardHome div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 15px 3px 7px;
-    cursor: pointer;
-}
-
 .card:hover {
     background-color: #2d2d2d;
     transform: scale(1.015);
