@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dare-to-roll/static/css/main.26142fa1.css",
-    "main.js": "/dare-to-roll/static/js/main.803bcaf6.js",
+    "main.css": "/dare-to-roll/static/css/main.080166a6.css",
+    "main.js": "/dare-to-roll/static/js/main.08e077c5.js",
     "static/media/HomePageVideo.webm": "/dare-to-roll/static/media/HomePageVideo.6dc285bf9ec98955da08.webm",
     "static/media/GTWalsheimPro-Light.ttf": "/dare-to-roll/static/media/GTWalsheimPro-Light.0a89fe38505661051946.ttf",
     "static/media/GTWalsheimPro-Bold.ttf": "/dare-to-roll/static/media/GTWalsheimPro-Bold.2dbf49e9fcb548837711.ttf",
@@ -16,11 +16,11 @@
     "static/media/arrowRight.svg": "/dare-to-roll/static/media/arrowRight.8da49ba76e3407ec9e8ab3a4ed2dc3ce.svg",
     "static/media/right.svg": "/dare-to-roll/static/media/right.7b13c9ac5e7c53fc2f3af0ae9afcc4d1.svg",
     "static/media/left.svg": "/dare-to-roll/static/media/left.bc24e9e3061ccb03a6e13a55760da701.svg",
-    "main.26142fa1.css.map": "/dare-to-roll/static/css/main.26142fa1.css.map",
-    "main.803bcaf6.js.map": "/dare-to-roll/static/js/main.803bcaf6.js.map"
+    "main.080166a6.css.map": "/dare-to-roll/static/css/main.080166a6.css.map",
+    "main.08e077c5.js.map": "/dare-to-roll/static/js/main.08e077c5.js.map"
   },
   "entrypoints": [
-    "static/css/main.26142fa1.css",
-    "static/js/main.803bcaf6.js"
+    "static/css/main.080166a6.css",
+    "static/js/main.08e077c5.js"
   ]
 }
