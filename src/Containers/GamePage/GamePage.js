@@ -100,23 +100,23 @@ const GamePage = props => {
                     </div>
                   </div>
                 </section>
-                <div style={{display: 'flex', gap: '25px', justifyContent: "space-between"}}>
+                <div className={styles.bottomGamePage}>
                   <div className={styles.infoComp}>
-                    <Tooltip title="Nombre de joueurs" style={{ display: 'flex', alignItems: 'center', gap: '10px'}}>
-                      <PeopleIcon sx={{ fontSize: 40, color: 'white' }} />
-                      <h3 style={{ fontSize: 18, color: 'white' }}>{selectedGame ? selectedGame.nbgamer : '?'}</h3>
+                    <Tooltip title="Nombre de joueurs" className={styles.tooltip}>
+                      <PeopleIcon className={styles.iconInfo} />
+                      <h3 className={styles.textInfo}>{selectedGame ? selectedGame.nbgamer : '?'}</h3>
                     </Tooltip >
-                    <Tooltip title="Durée d'une partie" style={{ display: 'flex', alignItems: 'center', gap: '10px'}}>
-                      <AccessTimeIcon sx={{ fontSize: 40, color: 'white' }} />
-                      <h3 style={{ fontSize: 18, color: 'white' }}>{selectedGame ? selectedGame.timegames : '?'}</h3>
+                    <Tooltip title="Durée d'une partie" className={styles.tooltip}>
+                      <AccessTimeIcon className={styles.iconInfo} />
+                      <h3 className={styles.textInfo}>{selectedGame ? selectedGame.timegames : '?'}</h3>
                     </Tooltip>
-                    <Tooltip title="Âge recommandé" style={{ display: 'flex', alignItems: 'center', gap: '10px'}}>
-                      <EscalatorWarningIcon sx={{ fontSize: 40, color: 'white' }} />
-                      <h3 style={{ fontSize: 18, color: 'white' }}>{selectedGame ? selectedGame.age : '?'}</h3>
+                    <Tooltip title="Âge recommandé" className={styles.tooltip}>
+                      <EscalatorWarningIcon className={styles.iconInfo} />
+                      <h3 className={styles.textInfo}>{selectedGame ? selectedGame.age : '?'}</h3>
                     </Tooltip>
-                    <Tooltip title="Langue(s)" style={{ display: 'flex', alignItems: 'center', gap: '10px'}}>
-                      <LanguageIcon sx={{ fontSize: 40, color: 'white' }} />
-                      <h3 style={{ fontSize: 18, color: 'white' }}>{selectedGame ? selectedGame.Language : '?'}</h3>
+                    <Tooltip title="Langue(s)" className={styles.tooltip}>
+                      <LanguageIcon className={styles.iconInfo} />
+                      <h3 className={styles.textInfo}>{selectedGame ? selectedGame.Language : '?'}</h3>
                     </Tooltip>
                   </div>
                   <div className={styles.buy}>

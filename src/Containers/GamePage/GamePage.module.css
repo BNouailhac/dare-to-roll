@@ -4,9 +4,31 @@
 }
 
 .gamepageContent {
-    padding: 30px 50px;
+    padding: 0px 50px;
     display: flex;
     flex-direction: column;
+}
+
+.bottomGamePage {
+    gap: 25px;
+    justify-content: space-between;
+}
+
+.tooltip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.iconInfo {
+    font-size: 40;
+    color: white;
+}
+
+.textInfo {
+    font-size: 18;
+    color: white;
+    min-width: fit-content;
 }
 
 header {
@@ -203,9 +225,6 @@ header h1 {
     justify-content: space-between;
     border-radius: 15px;
     box-sizing: border-box;
-    height: 90px;
-    width: 350px;
-    min-width: 310px;
 }
 
 .buy h3 {
@@ -264,6 +283,10 @@ header h1 {
 }
 
 @media screen and (max-width: 1400px) {
+    .gamepageContent {
+        padding: 30px 50px;
+    }
+
     .infoComp {
         width: 100%;
     }
@@ -282,6 +305,12 @@ header h1 {
     }
 }
 
+@media screen and (min-width: 1150px) {
+    .bottomGamePage {
+        display: flex;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     header h1 {
         font-size: 40px;
@@ -292,11 +321,27 @@ header h1 {
     header h1 {
         font-size: 32px;
     }
+
+    .tooltip {
+        font-size: small;
+    }
+}
+
+@media screen and (min-width: 675px) {
+    .buy {
+        height: 90px;
+        width: 350px;
+        min-width: 310px;
+    }
 }
 
 @media screen and (max-width: 675px) {
     header h1 {
         font-size: 26px;
+    }
+
+    .tooltip {
+        font-size: x-small;
     }
 }
 
@@ -323,6 +368,10 @@ header h1 {
 }
 
 @media screen and (max-width: 450px) {
+    .tooltip {
+        display: flow-root;
+    }
+
     .game {
         gap: 15px;
     }
