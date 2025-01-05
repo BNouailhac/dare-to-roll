@@ -1,6 +1,10 @@
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import GamePage from './Containers/GamePage/GamePage';
+import Games from './Containers/Games/Games';
+import Map from './Containers/Map/Map';
+import Calendar from './Containers/Calendar/Calendar';
+import Contact from './Containers/Contact/Contact';
 import NotFound from './Containers/NotFound/NotFound';
 import Home from './Containers/Home/Home';
 import { AnimatePresence } from "framer-motion";
@@ -32,15 +36,31 @@ const handleHome = () => {
   navigate('/dare-to-roll/');
 }
 
+const handleGame = () => {
+  navigate('/games/');
+}
+
+const handleMap = () => {
+  navigate('/world/');
+}
+
+const handleCalendar = () => {
+  navigate('/calendar/');
+}
+
+const handleContact = () => {
+  navigate('/contact/');
+}
+
 const handleSelectGame = (e) => {
   if (e.target.tagName === "BUTTON") {
     return
   } else if (e.target.classList[0] !== "AddToCart_addToCart__zbJPe") {
       if (e.target.parentNode?.id) {
-        navigate(`/dare-to-roll/games/${games[e.target.parentNode.id].surname}`);
+        navigate(`/games/${games[e.target.parentNode.id].surname}`);
         setSelectedGame(games[e.target.parentNode.id]);
       } else {
-        navigate(`/dare-to-roll/games/${games[e.target.offsetParent.id].surname}`);
+        navigate(`/games/${games[e.target.offsetParent.id].surname}`);
         setSelectedGame(games[e.target.offsetParent.id]);
       }
   }
@@ -49,7 +69,7 @@ const handleSelectGame = (e) => {
 const openGamePage = (e) => {
   setCartDisplayed(false);
   let selectedGameSurname = e.target.id;
-  navigate(`/dare-to-roll/games/${selectedGameSurname}`);
+  navigate(`/games/${selectedGameSurname}`);
 }
 
 const handleAddToCart = (e) => {
@@ -119,6 +139,11 @@ useEffect(() => {
             <Route path="/dare-to-roll/" element={<Home 
                                         cart={cart}
                                         cartAmount={cartAmount}
+                                        handleHome={handleHome}
+                                        handleGame={handleGame}
+                                        handleMap={handleMap}
+                                        handleCalendar={handleCalendar}
+                                        handleContact={handleContact}
                                         cartDisplayed={cartDisplayed}
                                         handleOpenCart={handleOpenCart}
                                         handleCloseCart={handleCloseCart}
@@ -128,7 +153,7 @@ useEffect(() => {
                                         handleRemoveFromCart={handleRemoveFromCart}
                                         openGamePage={openGamePage}
                                       />} />
-            <Route path="/dare-to-roll/games/:gameId" element={<GamePage
+            <Route path="/games/:gameId" element={<GamePage
                                                cart={cart}
                                                cartAmount={cartAmount}
                                                handleAddToCart={handleAddToCart}
@@ -136,6 +161,10 @@ useEffect(() => {
                                                selectedGame={selectedGame}
                                                setSelectedGame={setSelectedGame}
                                                handleHome={handleHome}
+                                               handleGame={handleGame}
+                                               handleMap={handleMap}
+                                               handleCalendar={handleCalendar}
+                                               handleContact={handleContact}
                                                allGames={allGames}
                                                cartDisplayed={cartDisplayed}
                                                handleOpenCart={handleOpenCart}
@@ -144,6 +173,50 @@ useEffect(() => {
                                                handleRemoveFromCart={handleRemoveFromCart}
                                                openGamePage={openGamePage}
                                             />} />
+            <Route path="/games/" element={<Games 
+              cartAmount={cartAmount}
+              handleAddToCart={handleAddToCart}
+              handleSelectGame={handleSelectGame} 
+              handleHome={handleHome}
+              handleGame={handleGame}
+              handleMap={handleMap}
+              handleCalendar={handleCalendar}
+              handleContact={handleContact}
+              handleOpenCart={handleOpenCart}
+              handleCloseCart={handleCloseCart}
+            />} />
+            <Route path="/world/" element={<Map 
+              cartAmount={cartAmount}
+              handleAddToCart={handleAddToCart}
+              handleSelectGame={handleSelectGame}
+              handleHome={handleHome}
+              handleGame={handleGame}
+              handleMap={handleMap}
+              handleCalendar={handleCalendar}
+              handleContact={handleContact}
+              handleOpenCart={handleOpenCart}
+              handleCloseCart={handleCloseCart}
+            />} />
+            <Route path="/calendar/" element={<Calendar 
+              cartAmount={cartAmount}
+              handleHome={handleHome}
+              handleGame={handleGame}
+              handleMap={handleMap}
+              handleCalendar={handleCalendar}
+              handleContact={handleContact}
+              handleOpenCart={handleOpenCart}
+              handleCloseCart={handleCloseCart}
+            />} />
+            <Route path="/contact/" element={<Contact 
+              cartAmount={cartAmount}
+              handleHome={handleHome}
+              handleGame={handleGame}
+              handleMap={handleMap}
+              handleCalendar={handleCalendar}
+              handleContact={handleContact}
+              handleOpenCart={handleOpenCart}
+              handleCloseCart={handleCloseCart}
+            />} />
             <Route path="*" element={<NotFound 
                             cartDisplayed={cartDisplayed}
                             handleCloseCart={handleCloseCart}
@@ -151,6 +224,10 @@ useEffect(() => {
                             cartAmount={cartAmount}
                             clearCart={clearCart}
                             handleHome={handleHome}
+                            handleGame={handleGame}
+                            handleMap={handleMap}
+                            handleCalendar={handleCalendar}
+                            handleContact={handleContact}
                             cart={cart}
                             handleRemoveFromCart={handleRemoveFromCart}
                             openGamePage={openGamePage}

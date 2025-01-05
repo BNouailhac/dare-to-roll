@@ -15,10 +15,15 @@ import PeopleIcon from '@mui/icons-material/People';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 import Tooltip from '@mui/material/Tooltip';
+import { useNavigate } from 'react-router-dom';
 
 const GamePage = props => {
   const {
     handleHome,
+    handleGame,
+    handleMap,
+    handleCalendar,
+    handleContact,
     landingPage,
     cartAmount,
     cart,
@@ -33,7 +38,7 @@ const GamePage = props => {
     handleRemoveFromCart,
     openGamePage
   } = props;
-
+  const navigate = useNavigate();
   const [carouselState, setCarouselState] = useState(0);
   
   return (
@@ -52,6 +57,10 @@ const GamePage = props => {
 
             <NavBar
               handleHome={handleHome}
+              handleGame={handleGame}
+              handleMap={handleMap}
+              handleCalendar={handleCalendar}
+              handleContact={handleContact}
               landingPage={landingPage}
               cartAmount={cartAmount}
               handleOpenCart={handleOpenCart}
@@ -64,7 +73,7 @@ const GamePage = props => {
                     <button 
                       style={{ color: "#cccccc" }} 
                       className={styles.goBack}
-                      onClick={handleHome}
+                      onClick={() => navigate(-1)}
                       id="19"
                       aria-label='Back'
                     >

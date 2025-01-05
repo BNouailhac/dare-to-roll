@@ -31,7 +31,45 @@ form button {
     color: white;
     font-family: "GT Bold";
     display: flex;
-    gap: 25px;
+}
+
+.tabsmenu {
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+    z-index: 9;
+}
+
+.tabsmenu:active{
+    transform: scale(0.945);
+}
+
+.tabsmenu {
+    transform: scale(0.75);
+    fill: #CCCCCC;
+    padding-top: 3px;
+    transition: 0.3s;
+}
+
+.logomenu {
+    width: 75px;
+    margin: auto;
+    display: flex;
+}
+
+.logodiv:active,
+.cartdiv:active{
+    transform: scale(0.945);
+}
+
+.svg {
+    transform: scale(0.75);
+    fill: #CCCCCC;
+    padding-top: 3px;
+    transition: 0.3s;
 }
 
 .logodiv,
@@ -83,10 +121,6 @@ form button {
     font-family: "GT Bold";
 }
 
-.navbar_right h3 {
-    font-family: "GT Bold";
-}
-
 form input:active {
     transform: scale(0.97);
 }
@@ -106,9 +140,32 @@ form button:active {
     }
 }
 
+@media screen and (max-width: 1000px) {
+    .textmenu {
+        display: none;
+    }
+
+    .navbar_right {
+        gap: 35px;
+    }
+
+    .logomenu {
+        width: 90px;
+    }
+}
+
 @media screen and (max-width: 770px) {
     .logodiv {
         display: none;
+    }
+
+    .navbar_left {
+        display: none;
+    }
+
+    .navbar_right {
+        justify-content: space-around;
+        display: contents;
     }
 }
 
@@ -131,6 +188,10 @@ form button:active {
 @media screen and (max-width: 485px) {
     .cartdiv {
         width: 30vw;
+    }
+
+    .logomenu {
+        width: 60px;
     }
 }
 

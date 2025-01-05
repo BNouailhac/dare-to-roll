@@ -13,6 +13,10 @@ const NotFound = props => {
     cartAmount,
     clearCart,
     handleHome,
+    handleGame,
+    handleMap,
+    handleCalendar,
+    handleContact,
     cart,
     landingPage,
     handleRemoveFromCart,
@@ -50,6 +54,10 @@ useEffect(() => {
 
           <NavBar
             handleHome={handleHome}
+            handleGame={handleGame}
+            handleMap={handleMap}
+            handleCalendar={handleCalendar}
+            handleContact={handleContact}
             landingPage={landingPage}
             cartAmount={cartAmount}
             handleOpenCart={handleOpenCart}

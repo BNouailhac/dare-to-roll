@@ -1,16 +1,23 @@
 import React from 'react';
 import styles from './Home.module.css';
 import NavBar from '../../Components/NavBar/NavBar';
-import { useNavigate } from 'react-router-dom';
 import Cart from '../../Components/Cart/Cart';
 import games from '../../utils/games';
 import Card from '../../Components/Card/Card';
+import monaco from "../../Resources/image/monaco.png";
+import europe from "../../Resources/image/european-union.png";
+import Tooltip from '@mui/material/Tooltip';
 
 const Home = props => {
   const {
     cartAmount,
     cart,
     cartDisplayed,
+    handleHome,
+    handleGame,
+    handleMap,
+    handleCalendar,
+    handleContact,
     handleOpenCart,
     handleCloseCart,
     clearCart,
@@ -19,12 +26,6 @@ const Home = props => {
     handleSelectGame,
     openGamePage
   } = props;
-
-  const navigate = useNavigate();
-
-  const handleHome = () => {
-    navigate('/dare-to-roll/');
-  }
 
   return (
     <div className={styles.main}>
@@ -44,8 +45,12 @@ const Home = props => {
                   <source src={require("../../Resources/image/HomePageVideo.webm")} type="video/webm" />
                 </video>
 
-                <NavBar 
+                <NavBar
                   handleHome={handleHome}
+                  handleGame={handleGame}
+                  handleMap={handleMap}
+                  handleCalendar={handleCalendar}
+                  handleContact={handleContact}
                   cartAmount={cartAmount}
                   handleOpenCart={handleOpenCart}
                   handleCloseCart={handleCloseCart}
@@ -54,7 +59,21 @@ const Home = props => {
                     <div className={styles.left}>
                         <div className={styles.splash}>
                           <h1>Dare to Roll</h1>
-                          <p className={styles.intro}>Tous nos jeux sont fait Maison ! Parcourez notre <span className={styles.careers}>catalogue</span> ou <span className={styles.careers}>contactez-nous</span> avec vos retours ou vos proposition de jeux.</p>
+                          <p className={styles.intro}>Tous nos jeux sont fait Maison ! Parcourez notre <span onClick={handleGame} className={styles.careers}>catalogue</span> ou <span onClick={handleContact} className={styles.careers}>contactez-nous</span> avec vos retours ou vos proposition de jeux.</p>
+                          <div className={styles.flags}>
+                            <div className={styles.flag} >
+                              <p className={styles.textFlag}>Originaires de Monaco</p>
+                              <Tooltip title="Originaires de Monaco" id="0">
+                                <img  src={monaco} style={{ width: "35px" }} alt="MonacoFlag"/>
+                              </Tooltip>
+                            </div>
+                            <div className={styles.flag}>
+                              <p className={styles.textFlag}>Disponible dans toute l'Europe</p>
+                              <Tooltip title="Disponible dans toute l'Europe" id="0">
+                                <img  src={europe} style={{ width: "35px" }} alt="EuroFlag"/>
+                              </Tooltip>
+                            </div>
+                          </div>
                         </div>
                         <div>
 

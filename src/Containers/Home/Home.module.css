@@ -9,6 +9,10 @@ body {
     width: 100vw;
 }
 
+body {
+    background-color: #0f1011;
+}
+
 .parent * {
     pointer-events: none;
 }
@@ -31,7 +35,7 @@ a {
 .left,
 .right {
     width: 50vw;
-    height: 90vh;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +69,7 @@ a {
     min-height: 100%;
     z-index: -1;
     background-attachment: fixed;
-  }
+}
 
 .splash {
     display: flex;
@@ -79,6 +83,18 @@ a {
     border-radius: 30px;
     z-index: 6;
     backdrop-filter: blur(8px);
+}
+
+.flags {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.flag {
+    display: flex;
+    align-items: center;
+    gap: 7.5px;
 }
 
 .buttons {
@@ -122,9 +138,18 @@ a {
     opacity: 1;
 }
 
+.textFlag {
+    color: white;
+    padding-left: 5px;
+    font-family: "GT Regular";
+    opacity: 1;
+    font-size: 15px;
+}
+
 .splash h1 {
     font-family: "GT Bold";
     font-size: 90px;
+    text-align: center;
     color: white;
 }
 
@@ -145,7 +170,7 @@ a {
     .right {
         width: auto;
         height: auto;
-        margin-top: 100px;
+        margin-top: 50px;
     }
 
     .homeRight,
@@ -160,11 +185,12 @@ a {
     .left,
     .splash {
         width: 450px;
+        margin-top: 0px;
     }
 
     .right {
         margin-top: 20px;
-        margin-bottom: 100px;
+        margin-bottom: 20px;
     }
 
     .buttons {
@@ -187,26 +213,39 @@ a {
     .splash h1 {
         font-size: 56px;
     }
+
+    .textFlag {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 500px) {
     .left,
     .splash {
-        width: 276px;
+        width: 310px;
     }
 
     .splash {
         padding: 10px 35px 10px 35px;
-        height: 60px;
-        justify-content: center;
+        height: 170px;
+    }
+
+    .flags {
+        margin-top: 10px;
+    }
+
+    .flag {
+        display: grid;
+        justify-items: center;
     }
 
     .splash h1 {
-        font-size: 35px;
+        font-size: 26px;
+        margin-bottom: 5px;
     }
 
     .splash p {
-        display: none;
+        font-size: 16px;
     }
 }
 
