@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/dare-to-roll/static/css/main.8b64a1e3.css",
-    "main.js": "/dare-to-roll/static/js/main.7226369b.js",
+    "main.css": "/dare-to-roll/static/css/main.5f332be2.css",
+    "main.js": "/dare-to-roll/static/js/main.5a9a2562.js",
     "static/media/HomePageVideo.webm": "/dare-to-roll/static/media/HomePageVideo.6dc285bf9ec98955da08.webm",
     "static/media/GTWalsheimPro-Light.ttf": "/dare-to-roll/static/media/GTWalsheimPro-Light.0a89fe38505661051946.ttf",
     "static/media/GTWalsheimPro-Bold.ttf": "/dare-to-roll/static/media/GTWalsheimPro-Bold.2dbf49e9fcb548837711.ttf",
     "static/media/GTWalsheimPro-Regular.ttf": "/dare-to-roll/static/media/GTWalsheimPro-Regular.1fd3cd7ade0f79b2152a.ttf",
     "static/media/GTWalsheimPro-Medium.ttf": "/dare-to-roll/static/media/GTWalsheimPro-Medium.bc56cfc10feb515d6622.ttf",
     "static/media/GTWalsheimPro-UltraBold.ttf": "/dare-to-roll/static/media/GTWalsheimPro-UltraBold.d4a45619bb8913d18a18.ttf",
+    "static/media/location.png": "/dare-to-roll/static/media/location.64cdcb0ef97818161310.png",
     "static/media/schedule.png": "/dare-to-roll/static/media/schedule.2f19fc766c1745b23e23.png",
     "static/media/404.png": "/dare-to-roll/static/media/404.29eae4380b4fa2d12efb.png",
     "static/media/catalogue.png": "/dare-to-roll/static/media/catalogue.e826cf97b71c125e80a9.png",
@@ -19,11 +20,11 @@
     "static/media/arrowRight.svg": "/dare-to-roll/static/media/arrowRight.8da49ba76e3407ec9e8ab3a4ed2dc3ce.svg",
     "static/media/right.svg": "/dare-to-roll/static/media/right.7b13c9ac5e7c53fc2f3af0ae9afcc4d1.svg",
     "static/media/left.svg": "/dare-to-roll/static/media/left.bc24e9e3061ccb03a6e13a55760da701.svg",
-    "main.8b64a1e3.css.map": "/dare-to-roll/static/css/main.8b64a1e3.css.map",
-    "main.7226369b.js.map": "/dare-to-roll/static/js/main.7226369b.js.map"
+    "main.5f332be2.css.map": "/dare-to-roll/static/css/main.5f332be2.css.map",
+    "main.5a9a2562.js.map": "/dare-to-roll/static/js/main.5a9a2562.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b64a1e3.css",
-    "static/js/main.7226369b.js"
+    "static/css/main.5f332be2.css",
+    "static/js/main.5a9a2562.js"
   ]
 }
