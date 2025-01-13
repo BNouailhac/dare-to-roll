@@ -38,11 +38,11 @@ a {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
-.right {
-    align-items: center;
+.left {
+    justify-content: center;
 }
 
 .left .buttons .browseBtn {
@@ -79,7 +79,6 @@ a {
     height: 240px;
     box-sizing: border-box;
     padding: 22px 35px 55px 50px;
-    margin-left: 44px;
     border-radius: 30px;
     z-index: 6;
     backdrop-filter: blur(8px);
@@ -126,8 +125,7 @@ a {
     height: inherit;
     width: inherit;
     z-index: -1;
-    background-color: white;
-    opacity: 0.285;
+    background: rgba(19, 18, 18, 0.5);
 }
 
 .intro {
@@ -185,7 +183,7 @@ a {
     .left,
     .splash {
         width: 450px;
-        margin-top: 0px;
+        margin-top: 10px;
     }
 
     .right {

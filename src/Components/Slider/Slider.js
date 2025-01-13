@@ -69,7 +69,7 @@ const Slider = props => {
           <Slide ref={slideRef} {...properties}>
             {selectedGame ? selectedGame.footage.map((each, index) => (
               <div 
-                key={index} 
+                key={"img_" +index} 
                 className={styles.slide}
               >
                 <img 
@@ -80,7 +80,7 @@ const Slider = props => {
               </div>
             )) : templateImages.map((each, index) => (
               <div 
-                key={index} 
+                key={"templateimg_" + index} 
                 className={styles.slide}
               >
                 <img 
@@ -117,7 +117,7 @@ const Slider = props => {
             <div className={styles.selectorContainer}>
               {selectedGame ? selectedGame.footage.map((each, index) => (
                 <button 
-                  key={index}
+                  key={"img2_" + index}
                   id={index}
                   onClick={jumpToIndex} 
                   className={carouselState === index ? styles.buttonSelected : styles.button} 
@@ -126,7 +126,7 @@ const Slider = props => {
                 </button>
               )) : templateImages.map((each, index) => (
                 <button 
-                  key={index}
+                  key={"templateimg2_" + index}
                   id={index}
                   onClick={jumpToIndex} 
                   className={carouselState === index ? styles.buttonSelected : styles.button} 

@@ -83,8 +83,7 @@ header h1 {
     height: inherit;
     width: inherit;
     z-index: -1;
-    background-color: white;
-    opacity: 0.285;
+    background: rgba(19, 18, 18, 0.5);
 }
 
 @media only screen and (max-width: 1000px) {

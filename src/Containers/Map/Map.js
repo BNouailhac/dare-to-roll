@@ -4,6 +4,7 @@ import NavBar from '../../Components/NavBar/NavBar';
 
 const Map = props => {
   const {
+    cart,
     cartAmount,
     handleAddToCart,
     handleSelectGame,
@@ -24,6 +25,7 @@ const Map = props => {
           handleMap={handleMap}
           handleCalendar={handleCalendar}
           handleContact={handleContact}
+          cart={cart}
           cartAmount={cartAmount}
           handleOpenCart={handleOpenCart}
           handleCloseCart={handleCloseCart}

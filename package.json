@@ -6,11 +6,15 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@ericz1803/react-google-calendar": "^4.3.2",
     "@mui/icons-material": "^6.1.10",
     "@mui/material": "^6.3.0",
+    "@react-email/render": "^1.0.4",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^6.4.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "nodemailer": "^6.9.16",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "react-slideshow-image": "^4.0.3"

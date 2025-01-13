@@ -127,7 +127,7 @@ const handleCloseCart = () => {
 
 useEffect(() => {
   if (cartDisplayed) {
-    document.body.style.overflow = "hidden !important";   
+    document.body.style.overflow = "hidden !important";
   } else {
     document.body.style.overflow = "scroll !important";
   }
@@ -173,7 +173,8 @@ useEffect(() => {
                                                handleRemoveFromCart={handleRemoveFromCart}
                                                openGamePage={openGamePage}
                                             />} />
-            <Route path="/games/" element={<Games 
+            <Route path="/games/" element={<Games
+              cart={cart}
               cartAmount={cartAmount}
               handleAddToCart={handleAddToCart}
               handleSelectGame={handleSelectGame} 
@@ -185,7 +186,8 @@ useEffect(() => {
               handleOpenCart={handleOpenCart}
               handleCloseCart={handleCloseCart}
             />} />
-            <Route path="/world/" element={<Map 
+            <Route path="/world/" element={<Map
+              cart={cart}
               cartAmount={cartAmount}
               handleAddToCart={handleAddToCart}
               handleSelectGame={handleSelectGame}
@@ -197,7 +199,8 @@ useEffect(() => {
               handleOpenCart={handleOpenCart}
               handleCloseCart={handleCloseCart}
             />} />
-            <Route path="/calendar/" element={<Calendar 
+            <Route path="/calendar/" element={<Calendar
+              cart={cart}
               cartAmount={cartAmount}
               handleHome={handleHome}
               handleGame={handleGame}
@@ -207,7 +210,8 @@ useEffect(() => {
               handleOpenCart={handleOpenCart}
               handleCloseCart={handleCloseCart}
             />} />
-            <Route path="/contact/" element={<Contact 
+            <Route path="/contact/" element={<Contact
+              cart={cart}
               cartAmount={cartAmount}
               handleHome={handleHome}
               handleGame={handleGame}
@@ -217,7 +221,7 @@ useEffect(() => {
               handleOpenCart={handleOpenCart}
               handleCloseCart={handleCloseCart}
             />} />
-            <Route path="*" element={<NotFound 
+            <Route path="*" element={<NotFound
                             cartDisplayed={cartDisplayed}
                             handleCloseCart={handleCloseCart}
                             handleOpenCart={handleOpenCart}

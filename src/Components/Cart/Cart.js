@@ -19,15 +19,7 @@ const Cart = props => {
 
     const [total, setTotal] = useState(0);
     let newTotal = 0;
-    cart.forEach((item, i) => {
-        let priceAsNumber = parseFloat(item.price);
-        let currentTotal = parseFloat(newTotal);
-        newTotal = (priceAsNumber + currentTotal).toFixed(2);
 
-        if (i === cart.length) {
-            setTotal(newTotal);
-        }
-    })
 
     const variants = {
         initial: { x: 100 },
@@ -55,7 +47,7 @@ const Cart = props => {
                                 {cart.map((item, i) => {
                                     return <motion.div 
                                              className={styles.item} 
-                                             key={i} 
+                                             key={"product_" + i} 
                                              variants={variants} 
                                              initial="initial" 
                                              animate="animate" 

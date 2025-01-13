@@ -3,7 +3,9 @@ import styles from './Home.module.css';
 import NavBar from '../../Components/NavBar/NavBar';
 import Cart from '../../Components/Cart/Cart';
 import games from '../../utils/games';
+import events from '../../utils/events';
 import Card from '../../Components/Card/Card';
+import EventsCard from '../../Components/EventsCard/EventsCard';
 import monaco from "../../Resources/image/monaco.png";
 import europe from "../../Resources/image/european-union.png";
 import Tooltip from '@mui/material/Tooltip';
@@ -40,17 +42,16 @@ const Home = props => {
               openGamePage={openGamePage}
       /> : null}
         <div className={styles.home}>
-
                 <video autoPlay muted loop className={styles.video}>
                   <source src={require("../../Resources/image/HomePageVideo.webm")} type="video/webm" />
                 </video>
-
                 <NavBar
                   handleHome={handleHome}
                   handleGame={handleGame}
                   handleMap={handleMap}
                   handleCalendar={handleCalendar}
                   handleContact={handleContact}
+                  cart={cart}
                   cartAmount={cartAmount}
                   handleOpenCart={handleOpenCart}
                   handleCloseCart={handleCloseCart}
@@ -75,6 +76,13 @@ const Home = props => {
                             </div>
                           </div>
                         </div>
+                        <div style={{marginTop: "10px", marginBottom: "10px", padding: "10px", backdropFilter: "blur(8px)", borderRadius: "20px", background: "rgba(19, 18, 18, 0.5)"}}>
+                          <h2 style={{ textAlign: "center" }}>Retrouvez nous prochainement !</h2>
+                        </div>
+                        <EventsCard
+                            event={events[0]}
+                            key={events[0].title}
+                          />
                         <div>
 
                         </div>

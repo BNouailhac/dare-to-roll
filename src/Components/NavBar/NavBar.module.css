@@ -9,6 +9,7 @@
     align-items: center;
     padding: 5px 40px 2px 30px;
     z-index: 12;
+    background: rgba(19, 18, 18, 0.5);
 }
 
 form {
@@ -20,6 +21,14 @@ form button {
     background: transparent;
     cursor: pointer;
     border: 1px transparent;
+}
+
+.margimg {
+    margin-left: 20px;
+}
+
+.langimg {
+    width: 50px;
 }
 
 .navbar_left {
@@ -148,24 +157,20 @@ form button:active {
     .navbar_right {
         gap: 35px;
     }
-
-    .logomenu {
-        width: 90px;
-    }
 }
 
 @media screen and (max-width: 770px) {
-    .logodiv {
-        display: none;
+    .navbar {
+        display: block;
     }
 
     .navbar_left {
-        display: none;
+        justify-content: center;
     }
 
     .navbar_right {
         justify-content: space-around;
-        display: contents;
+        gap: 0px;
     }
 }
 
@@ -192,6 +197,14 @@ form button:active {
 
     .logomenu {
         width: 60px;
+    }
+
+    .margimg {
+        margin-left: 0px;
+    }
+    
+    .langimg {
+        width: 40px;
     }
 }
 

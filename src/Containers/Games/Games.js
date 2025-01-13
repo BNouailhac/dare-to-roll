@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Games = props => {
   const {
+    cart,
     cartAmount,
     handleAddToCart,
     handleSelectGame,
@@ -33,6 +34,7 @@ const Games = props => {
         handleMap={handleMap}
         handleCalendar={handleCalendar}
         handleContact={handleContact}
+        cart={cart}
         cartAmount={cartAmount}
         handleOpenCart={handleOpenCart}
         handleCloseCart={handleCloseCart}
@@ -56,12 +58,12 @@ const Games = props => {
             <h1>Notre catalogue de jeux !</h1>
           </header>
             <Box sx={{ flexGrow: 1 }}>
-              <Grid container spacing={2} sx={{ justifyContent: "center" }}>
+              <Grid container spacing={2} sx={{ justifyContent: "space-around" }}>
                 {games.map((game, index) => (
                   <Grid>
                     <CardCatalogue
                       game={game}
-                      key={index} 
+                      key={"game_" + index} 
                       handleAddToCart={handleAddToCart} 
                       handleSelectGame={handleSelectGame}
                     />

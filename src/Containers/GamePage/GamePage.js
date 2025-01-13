@@ -61,6 +61,7 @@ const GamePage = props => {
               handleMap={handleMap}
               handleCalendar={handleCalendar}
               handleContact={handleContact}
+              cart={cart}
               landingPage={landingPage}
               cartAmount={cartAmount}
               handleOpenCart={handleOpenCart}
@@ -161,7 +162,7 @@ const GamePage = props => {
 
                       <button 
                         id="21" 
-                        style={{ color: "#999999" }} 
+                        style={{ color: "#999999" }}
                         onClick={handleAddToCart} 
                         aria-label="Add"
                       >
