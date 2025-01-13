@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Home.module.css';
 import NavBar from '../../Components/NavBar/NavBar';
-import Cart from '../../Components/Cart/Cart';
 import games from '../../utils/games';
 import events from '../../utils/events';
 import Card from '../../Components/Card/Card';
@@ -12,35 +11,17 @@ import Tooltip from '@mui/material/Tooltip';
 
 const Home = props => {
   const {
-    cartAmount,
-    cart,
-    cartDisplayed,
     handleHome,
     handleGame,
     handleMap,
     handleCalendar,
     handleContact,
-    handleOpenCart,
-    handleCloseCart,
-    clearCart,
-    handleAddToCart,
-    handleRemoveFromCart,
     handleSelectGame,
     openGamePage
   } = props;
 
   return (
     <div className={styles.main}>
-      {cartDisplayed ? <Cart 
-              cartDisplayed={cartDisplayed} 
-              handleOpenCart={handleOpenCart}
-              handleCloseCart={handleCloseCart}
-              cart={cart}
-              cartAmount={cartAmount}
-              clearCart={clearCart}
-              handleRemoveFromCart={handleRemoveFromCart}
-              openGamePage={openGamePage}
-      /> : null}
         <div className={styles.home}>
                 <video autoPlay muted loop className={styles.video}>
                   <source src={require("../../Resources/image/HomePageVideo.webm")} type="video/webm" />
@@ -51,10 +32,6 @@ const Home = props => {
                   handleMap={handleMap}
                   handleCalendar={handleCalendar}
                   handleContact={handleContact}
-                  cart={cart}
-                  cartAmount={cartAmount}
-                  handleOpenCart={handleOpenCart}
-                  handleCloseCart={handleCloseCart}
                 />
                 <div className={styles.container}>
                     <div className={styles.left}>
@@ -93,8 +70,7 @@ const Home = props => {
                         <h2>Notre dernier jeux !</h2>
                         <Card 
                           game={games[games.length - 1]} 
-                          key={games[games.length - 1].name} 
-                          handleAddToCart={handleAddToCart} 
+                          key={games[games.length - 1].name}
                           handleSelectGame={handleSelectGame}
                         />
                       </div>

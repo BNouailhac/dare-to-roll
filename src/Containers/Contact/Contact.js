@@ -9,15 +9,11 @@ import SendIcon from '@mui/icons-material/Send';
 
 const Contact = props => {
   const {
-    cartAmount,
-    cart,
     handleHome,
     handleGame,
     handleMap,
     handleCalendar,
     handleContact,
-    handleOpenCart,
-    handleCloseCart,
   } = props;
 
   const [type, settype] = useState(true);
@@ -38,10 +34,6 @@ const Contact = props => {
         handleMap={handleMap}
         handleCalendar={handleCalendar}
         handleContact={handleContact}
-        cart={cart}
-        cartAmount={cartAmount}
-        handleOpenCart={handleOpenCart}
-        handleCloseCart={handleCloseCart}
       />
       <video autoPlay muted loop className={styles.video}>
         <source src={require("../../Resources/image/HomePageVideo.webm")} type="video/webm" />

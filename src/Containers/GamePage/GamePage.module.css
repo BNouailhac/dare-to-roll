@@ -389,13 +389,3 @@ header h1 {
         gap: 20px;
     }
 }
-
-@media screen and (max-width: 360px) {
-    .addTobuyCart {
-        gap: 20px;
-    }
-
-    .addToCartButton {
-        font-size: 16px !important;
-    }
-}

@@ -13,9 +13,6 @@ import templateGame from './utils/templateGame';
 
 function App() {
   const [allGames, setAllGames] = useState(games);
-  const [cart, setCart] = useState([]);
-  const [cartAmount, setCartAmount] = useState(0);
-  const [cartDisplayed, setCartDisplayed] = useState(false);
   const [selectedGame, setSelectedGame] = useState(false);
 
 const navigate = useNavigate();
@@ -32,7 +29,6 @@ if (location.pathname !== "/dare-to-roll/" && selectedGame === false) {
 }
 
 const handleHome = () => {
-  setCartDisplayed(false);
   navigate('/dare-to-roll/');
 }
 
@@ -67,96 +63,23 @@ const handleSelectGame = (e) => {
 }
 
 const openGamePage = (e) => {
-  setCartDisplayed(false);
   let selectedGameSurname = e.target.id;
   navigate(`/games/${selectedGameSurname}`);
 }
-
-const handleAddToCart = (e) => {
-  let handledAddedGame = allGames.map((game, i) => {
-    if (selectedGame.id === i) {
-      game.inCart = true
-      let newCart = cart;
-      newCart.push(game);
-      setCart(newCart);
-      setCartAmount(cartAmount + 1);
-      return game
-    } else {
-      return game;
-    }
-  });
-
-  setAllGames(handledAddedGame);
-}
-
-const clearCart = () => {
-  setCart([]);
-  setCartAmount(0);
-  const defaultGames = allGames.map((game, i) => {
-    game.inCart = false;
-    return game;
-  });
-  setAllGames(defaultGames);
-}
-
-const handleRemoveFromCart = (e) => {
-  let removedIndex = cart.findIndex(game => game.id === e.target.id);
-  let newAllGames = allGames.map((game, i) => {
-    if (game.id === e.target.id) {
-      game.inCart = false;
-      return game;
-    } else {
-      return game;
-    }
-  });
-  setAllGames(newAllGames);
-  let firstHalf = cart.slice(0, removedIndex);
-  let secondHalf = cart.slice(removedIndex + 1);
-  let addedUp = firstHalf.concat(secondHalf);
-  setCart(addedUp);
-  setCartAmount(cartAmount - 1)
-}
-
-const handleOpenCart = () => {
-  setCartDisplayed(true);
-}
-
-const handleCloseCart = () => {
-  setCartDisplayed(false);
-}
-
-useEffect(() => {
-  if (cartDisplayed) {
-    document.body.style.overflow = "hidden !important";
-  } else {
-    document.body.style.overflow = "scroll !important";
-  }
-}, [cartDisplayed])
 
   return (
       <AnimatePresence exitBeforeEnter>
           <Routes key={location.pathname} location={location}>
             <Route path="/dare-to-roll/" element={<Home 
-                                        cart={cart}
-                                        cartAmount={cartAmount}
                                         handleHome={handleHome}
                                         handleGame={handleGame}
                                         handleMap={handleMap}
                                         handleCalendar={handleCalendar}
                                         handleContact={handleContact}
-                                        cartDisplayed={cartDisplayed}
-                                        handleOpenCart={handleOpenCart}
-                                        handleCloseCart={handleCloseCart}
-                                        clearCart={clearCart}
-                                        handleAddToCart={handleAddToCart}
                                         handleSelectGame={handleSelectGame}
-                                        handleRemoveFromCart={handleRemoveFromCart}
                                         openGamePage={openGamePage}
                                       />} />
             <Route path="/games/:gameId" element={<GamePage
-                                               cart={cart}
-                                               cartAmount={cartAmount}
-                                               handleAddToCart={handleAddToCart}
                                                handleSelectGame={handleSelectGame} 
                                                selectedGame={selectedGame}
                                                setSelectedGame={setSelectedGame}
@@ -166,74 +89,44 @@ useEffect(() => {
                                                handleCalendar={handleCalendar}
                                                handleContact={handleContact}
                                                allGames={allGames}
-                                               cartDisplayed={cartDisplayed}
-                                               handleOpenCart={handleOpenCart}
-                                               handleCloseCart={handleCloseCart}
-                                               clearCart={clearCart}
-                                               handleRemoveFromCart={handleRemoveFromCart}
                                                openGamePage={openGamePage}
                                             />} />
             <Route path="/games/" element={<Games
-              cart={cart}
-              cartAmount={cartAmount}
-              handleAddToCart={handleAddToCart}
               handleSelectGame={handleSelectGame} 
               handleHome={handleHome}
               handleGame={handleGame}
               handleMap={handleMap}
               handleCalendar={handleCalendar}
               handleContact={handleContact}
-              handleOpenCart={handleOpenCart}
-              handleCloseCart={handleCloseCart}
             />} />
             <Route path="/world/" element={<Map
-              cart={cart}
-              cartAmount={cartAmount}
-              handleAddToCart={handleAddToCart}
               handleSelectGame={handleSelectGame}
               handleHome={handleHome}
               handleGame={handleGame}
               handleMap={handleMap}
               handleCalendar={handleCalendar}
               handleContact={handleContact}
-              handleOpenCart={handleOpenCart}
-              handleCloseCart={handleCloseCart}
             />} />
             <Route path="/calendar/" element={<Calendar
-              cart={cart}
-              cartAmount={cartAmount}
               handleHome={handleHome}
               handleGame={handleGame}
               handleMap={handleMap}
               handleCalendar={handleCalendar}
               handleContact={handleContact}
-              handleOpenCart={handleOpenCart}
-              handleCloseCart={handleCloseCart}
             />} />
             <Route path="/contact/" element={<Contact
-              cart={cart}
-              cartAmount={cartAmount}
               handleHome={handleHome}
               handleGame={handleGame}
               handleMap={handleMap}
               handleCalendar={handleCalendar}
               handleContact={handleContact}
-              handleOpenCart={handleOpenCart}
-              handleCloseCart={handleCloseCart}
             />} />
             <Route path="*" element={<NotFound
-                            cartDisplayed={cartDisplayed}
-                            handleCloseCart={handleCloseCart}
-                            handleOpenCart={handleOpenCart}
-                            cartAmount={cartAmount}
-                            clearCart={clearCart}
                             handleHome={handleHome}
                             handleGame={handleGame}
                             handleMap={handleMap}
                             handleCalendar={handleCalendar}
                             handleContact={handleContact}
-                            cart={cart}
-                            handleRemoveFromCart={handleRemoveFromCart}
                             openGamePage={openGamePage}
           />} />
           </Routes>

@@ -1,13 +1,10 @@
 import styles from './CardCatalogue.module.css';
 import React from 'react';
 import { motion } from "framer-motion";
-//import AddToCart from '../AddToCart/AddToCart';
-//import AddedToCart from '../AddedToCart/AddedToCart';
 
 const CardCatalogue = props => {
     const { 
         game,
-        handleAddToCart,
         handleSelectGame
       } = props;
 
@@ -31,11 +28,6 @@ const CardCatalogue = props => {
             <img src={game.cover} className={styles.img} alt="Game Cover Image" />
     
             <div className={styles.price}>
-                {/*{game.inCart ? <AddedToCart /> : <AddToCart 
-                                      game={game}
-                                      handleAddToCart={handleAddToCart} 
-                                    />
-                }*/}
                 <h2 className={styles.name}>{game.name}</h2>
                 <div style={{ display: 'ruby'}}>{game.price} €</div>
             </div>

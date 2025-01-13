@@ -11,15 +11,11 @@ import { ReactComponent as Arrow } from "../../Resources/image/arrow.svg";
 
 const Calendar = props => {
   const {
-    cart,
-    cartAmount,
     handleHome,
     handleGame,
     handleMap,
     handleCalendar,
     handleContact,
-    handleOpenCart,
-    handleCloseCart,
   } = props;
 
   const navigate = useNavigate();
@@ -32,10 +28,6 @@ const Calendar = props => {
         handleMap={handleMap}
         handleCalendar={handleCalendar}
         handleContact={handleContact}
-        cart={cart}
-        cartAmount={cartAmount}
-        handleOpenCart={handleOpenCart}
-        handleCloseCart={handleCloseCart}
       />
       <video autoPlay muted loop className={styles.video}>
         <source src={require("../../Resources/image/HomePageVideo.webm")} type="video/webm" />

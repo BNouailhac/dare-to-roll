@@ -11,17 +11,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Games = props => {
   const {
-    cart,
-    cartAmount,
-    handleAddToCart,
     handleSelectGame,
     handleHome,
     handleGame,
     handleMap,
     handleCalendar,
     handleContact,
-    handleOpenCart,
-    handleCloseCart,
   } = props;
 
   const navigate = useNavigate();
@@ -34,10 +29,6 @@ const Games = props => {
         handleMap={handleMap}
         handleCalendar={handleCalendar}
         handleContact={handleContact}
-        cart={cart}
-        cartAmount={cartAmount}
-        handleOpenCart={handleOpenCart}
-        handleCloseCart={handleCloseCart}
       />
       <video autoPlay muted loop className={styles.video}>
         <source src={require("../../Resources/image/HomePageVideo.webm")} type="video/webm" />
@@ -64,7 +55,6 @@ const Games = props => {
                     <CardCatalogue
                       game={game}
                       key={"game_" + index} 
-                      handleAddToCart={handleAddToCart} 
                       handleSelectGame={handleSelectGame}
                     />
                   </Grid>

@@ -4,9 +4,6 @@ import AnimatedGamePage from '../AnimatedPage/AnimatedGamePage';
 import NavBar from '../../Components/NavBar/NavBar';
 import { ReactComponent as Arrow } from "../../Resources/image/arrow.svg";
 import Slider from '../../Components/Slider/Slider';
-//import { ReactComponent as Add } from "../../Resources/image/add.svg";
-//import AddedToCartBig from '../../Components/AddedToCart/AddedToCartBig';
-import Cart from '../../Components/Cart/Cart';
 import templateGame from '../../utils/templateGame';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -25,17 +22,9 @@ const GamePage = props => {
     handleCalendar,
     handleContact,
     landingPage,
-    cartAmount,
-    cart,
     selectedGame,
     setSelectedGame,
     allGames,
-    handleAddToCart,
-    handleOpenCart,
-    handleCloseCart,
-    cartDisplayed,
-    clearCart,
-    handleRemoveFromCart,
     openGamePage
   } = props;
   const navigate = useNavigate();
@@ -44,28 +33,13 @@ const GamePage = props => {
   return (
     <>
         <div className={styles.gamepage}>
-            {cartDisplayed ? <Cart 
-              cartDisplayed={cartDisplayed}
-              handleOpenCart={handleOpenCart}
-              handleCloseCart={handleCloseCart}
-              cart={cart}
-              cartAmount={cartAmount}
-              clearCart={clearCart}
-              handleRemoveFromCart={handleRemoveFromCart}
-              openGamePage={openGamePage}
-            /> : null}
-
             <NavBar
               handleHome={handleHome}
               handleGame={handleGame}
               handleMap={handleMap}
               handleCalendar={handleCalendar}
               handleContact={handleContact}
-              cart={cart}
               landingPage={landingPage}
-              cartAmount={cartAmount}
-              handleOpenCart={handleOpenCart}
-              handleCloseCart={handleCloseCart}
             />
 
             <AnimatedGamePage>
@@ -144,34 +118,6 @@ const GamePage = props => {
                       >
                         Commander
                       </Button>
-                      {/* To cart segment
-                      {selectedGame ? selectedGame.inCart ? <AddedToCartBig /> : 
-                      <button 
-                        id="21" 
-                        className={styles.addToCartButton}
-                        style={{ color: "#999999" }} 
-                        onClick={handleAddToCart} 
-                        aria-label="Add"
-                      >
-                        Add to cart
-                        <Add 
-                          className={styles.add} 
-                          style={{ fill: "#999999" }}
-                        />
-                      </button> : 
-
-                      <button 
-                        id="21" 
-                        style={{ color: "#999999" }}
-                        onClick={handleAddToCart} 
-                        aria-label="Add"
-                      >
-                        Not available
-                        <Add 
-                          className={styles.add} 
-                          style={{ fill: "#999999" }}
-                        />
-                      </button>}*/}
                     </div>
                   </div>
               </div>

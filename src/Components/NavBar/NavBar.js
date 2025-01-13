@@ -14,7 +14,6 @@ import Select from '@mui/material/Select';
 import france from "../../Resources/image/france.png";
 import britain from "../../Resources/image/britain.png";
 import italy from "../../Resources/image/italy.png";
-import Cart from '../../Components/Cart/Cart';
 
 const NavBar = props => { 
     const {
@@ -23,10 +22,6 @@ const NavBar = props => {
         handleMap,
         handleCalendar,
         handleContact,
-        cart,
-        cartAmount,
-        handleOpenCart,
-        handleCloseCart
     } = props;
 
     const [langue, setLangue] = useState('fr');
@@ -117,19 +112,6 @@ const NavBar = props => {
               </MenuItem>
             </Select>
           </FormControl>
-           {/* Section pour faire un panier si dans le futur on veut faire ca :*/}
-          <div 
-            className={styles.cartdiv} 
-            id="3"
-            onClick={handleOpenCart}
-          >
-              <Cart
-                onClick={handleOpenCart} 
-                className={styles.svg2} 
-                style={{ fill: cartAmount ? "#90ee90" : "transparent", stroke: cartAmount ? "" : "#fff", strokeWidth: "34px" }}
-              />
-              <h3 onClick={handleOpenCart}>Cart: {cartAmount}</h3>
-          </div>
         </div>
       </motion.div>
     </>

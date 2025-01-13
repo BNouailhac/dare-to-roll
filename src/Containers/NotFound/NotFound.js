@@ -2,24 +2,16 @@ import styles from './NotFound.module.css';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar';
-import Cart from '../../Components/Cart/Cart';
 import { motion } from "framer-motion";
 
 const NotFound = props => {
   const {
-    cartDisplayed,
-    handleCloseCart,
-    handleOpenCart,
-    cartAmount,
-    clearCart,
     handleHome,
     handleGame,
     handleMap,
     handleCalendar,
     handleContact,
-    cart,
     landingPage,
-    handleRemoveFromCart,
     openGamePage
   } = props;
   const location = useLocation();
@@ -41,17 +33,6 @@ useEffect(() => {
 
     return (
       <div className={styles.notFound}>
-          {cartDisplayed ? <Cart 
-            cartDisplayed={cartDisplayed} 
-            handleOpenCart={handleOpenCart}
-            handleCloseCart={handleCloseCart}
-            cart={cart}
-            cartAmount={cartAmount}
-            clearCart={clearCart}
-            handleRemoveFromCart={handleRemoveFromCart}
-            openGamePage={openGamePage}
-          /> : null}
-
           <NavBar
             handleHome={handleHome}
             handleGame={handleGame}
@@ -59,9 +40,6 @@ useEffect(() => {
             handleCalendar={handleCalendar}
             handleContact={handleContact}
             landingPage={landingPage}
-            cartAmount={cartAmount}
-            handleOpenCart={handleOpenCart}
-            handleCloseCart={handleCloseCart}
            />
 
             <motion.div className={styles.container} variants={animations} initial="initial" animate="animate" exit="exit">
