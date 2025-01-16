@@ -8,9 +8,16 @@ import EventsCard from '../../Components/EventsCard/EventsCard';
 import monaco from "../../Resources/image/monaco.png";
 import europe from "../../Resources/image/european-union.png";
 import Tooltip from '@mui/material/Tooltip';
+import langue from './language/langue';
 
 const Home = props => {
   const {
+    seed,
+    lang,
+    updateLang,
+    cart,
+    removeFromCart,
+    clearCart,
     handleHome,
     handleGame,
     handleMap,
@@ -27,6 +34,13 @@ const Home = props => {
                   <source src={require("../../Resources/image/HomePageVideo.webm")} type="video/webm" />
                 </video>
                 <NavBar
+                  seed={seed}
+                  lang={lang}
+                  updateLang={updateLang}
+                  cart={cart}
+                  handleSelectGame={handleSelectGame}
+                  removeFromCart={removeFromCart}
+                  clearCart={clearCart}
                   handleHome={handleHome}
                   handleGame={handleGame}
                   handleMap={handleMap}
@@ -37,26 +51,27 @@ const Home = props => {
                     <div className={styles.left}>
                         <div className={styles.splash}>
                           <h1>Dare to Roll</h1>
-                          <p className={styles.intro}>Tous nos jeux sont fait Maison ! Parcourez notre <span onClick={handleGame} className={styles.careers}>catalogue</span> ou <span onClick={handleContact} className={styles.careers}>contactez-nous</span> avec vos retours ou vos proposition de jeux.</p>
+                          <p className={styles.intro}>{langue[lang].title}<span onClick={handleGame} className={styles.careers}>{langue[lang].catalogue}</span>{langue[lang].or}<span onClick={handleContact} className={styles.careers}>{langue[lang].contact}</span>{langue[lang].with}</p>
                           <div className={styles.flags}>
                             <div className={styles.flag} >
-                              <p className={styles.textFlag}>Originaires de Monaco</p>
-                              <Tooltip title="Originaires de Monaco" id="0">
+                              <p className={styles.textFlag}>{langue[lang].origin}</p>
+                              <Tooltip title={langue[lang].origin} id="0">
                                 <img  src={monaco} style={{ width: "35px" }} alt="MonacoFlag"/>
                               </Tooltip>
                             </div>
                             <div className={styles.flag}>
-                              <p className={styles.textFlag}>Disponible dans toute l'Europe</p>
-                              <Tooltip title="Disponible dans toute l'Europe" id="0">
+                              <p className={styles.textFlag}>{langue[lang].available}</p>
+                              <Tooltip title={langue[lang].available} id="0">
                                 <img  src={europe} style={{ width: "35px" }} alt="EuroFlag"/>
                               </Tooltip>
                             </div>
                           </div>
                         </div>
                         <div style={{marginTop: "10px", marginBottom: "10px", padding: "10px", backdropFilter: "blur(8px)", borderRadius: "20px", background: "rgba(19, 18, 18, 0.5)"}}>
-                          <h2 style={{ textAlign: "center" }}>Retrouvez nous prochainement !</h2>
+                          <h2 style={{ textAlign: "center" }}>{langue[lang].findUs}</h2>
                         </div>
                         <EventsCard
+                            lang={lang}
                             event={events[0]}
                             key={events[0].title}
                           />
@@ -67,8 +82,9 @@ const Home = props => {
     
                     <div className={styles.right}>
                       <div className={styles.homeRight}>
-                        <h2>Notre dernier jeux !</h2>
-                        <Card 
+                        <h2>{langue[lang].lastgame}</h2>
+                        <Card
+                          lang={lang}
                           game={games[games.length - 1]} 
                           key={games[games.length - 1].name}
                           handleSelectGame={handleSelectGame}

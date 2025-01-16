@@ -6,9 +6,17 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import langue from './language/langue';
 
 const Contact = props => {
   const {
+    seed,
+    lang,
+    updateLang,
+    cart,
+    handleSelectGame,
+    removeFromCart,
+    clearCart,
     handleHome,
     handleGame,
     handleMap,
@@ -29,6 +37,13 @@ const Contact = props => {
   return (
     <>
       <NavBar
+        seed={seed}
+        lang={lang}
+        updateLang={updateLang}
+        cart={cart}
+        handleSelectGame={handleSelectGame}
+        removeFromCart={removeFromCart}
+        clearCart={clearCart}
         handleHome={handleHome}
         handleGame={handleGame}
         handleMap={handleMap}
@@ -44,12 +59,12 @@ const Contact = props => {
           <div className={styles.homeRight}>
             <div className={styles.head}>
               <div style={{ justifyContent: "center", display: 'flex', gap: '20px' }} >
-                <Button id={1} variant={type ? "contained" : "outlined" } onClick={chooseType}>Joueur</Button>
-                <Button id={2} variant={type ? "outlined" : "contained" } onClick={chooseType}>Professionnel</Button>
+                <Button id={1} variant={type ? "contained" : "outlined" } onClick={chooseType}>{langue[lang].player}</Button>
+                <Button id={2} variant={type ? "outlined" : "contained" } onClick={chooseType}>{langue[lang].professional}</Button>
               </div>
               {type ? 
-                <h1> Vous souhaitez nous faire part de vos avis ou conseils ? Avec plaisir !</h1> : 
-                <h1> Vous vendez des jeux ou organisez des événements ? Prenons contact !</h1>
+                <h1>{langue[lang].textplayer}</h1> : 
+                <h1>{langue[lang].textprofessional}</h1>
                 }
               
             </div>
@@ -61,24 +76,24 @@ const Contact = props => {
             >
                 <TextField
                   id="outlined-multiline-flexible"
-                  label="Adresse email"
+                  label={langue[lang].mail}
                   multiline
                   maxRows={4}
                 />
                 <TextField
                   id="outlined-textarea"
-                  label="Sujet"
+                  label={langue[lang].subject}
                   multiline
                 />
                 <TextField
                   id="outlined-multiline-static"
-                  label="Message"
+                  label={langue[lang].message}
                   multiline
                   rows={10}
                 />
             </Box>
             <Button endIcon={<SendIcon />}>
-              Envoyer
+              {langue[lang].send}
             </Button>
           </div>
           

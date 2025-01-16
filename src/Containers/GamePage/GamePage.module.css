@@ -225,6 +225,7 @@ header h1 {
     justify-content: space-between;
     border-radius: 15px;
     box-sizing: border-box;
+    gap: 15px;
 }
 
 .buy h3 {
@@ -243,9 +244,15 @@ header h1 {
 }
 
 .infos {
-    display: flex;
     gap: 14px;
     align-items: center;
+}
+
+.quantity {
+    font-family: "GT Light";
+    color: white;
+    font-size: 17px;
+    padding-top: 10px;
 }
 
 .infos h3 {
@@ -327,14 +334,6 @@ header h1 {
     }
 }
 
-@media screen and (min-width: 675px) {
-    .buy {
-        height: 90px;
-        width: 350px;
-        min-width: 310px;
-    }
-}
-
 @media screen and (max-width: 675px) {
     header h1 {
         font-size: 26px;
@@ -349,6 +348,12 @@ header h1 {
     header h1 {
         font-size: 20px;
         padding-top: 6px;
+    }
+
+    .buy {
+        display: block;
+        gap: 20px;
+        text-align: center;
     }
 
     .gamepageContent {

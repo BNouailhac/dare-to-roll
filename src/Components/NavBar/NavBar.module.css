@@ -23,6 +23,28 @@ form button {
     border: 1px transparent;
 }
 
+.cart {
+    width: 350px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+}
+
+.cartTitle {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.textmenu {
+    text-align: center;
+}
+
+.iconMobile {
+    justify-content: center;
+    width: 60px;
+    display: none;
+}
+
 .margimg {
     margin-left: 20px;
 }
@@ -34,6 +56,10 @@ form button {
 .navbar_left {
     display: flex;
     gap: 50px;
+}
+
+.DesktopMenu {
+    display: flex;
 }
 
 .navbar_right {
@@ -144,21 +170,21 @@ form button:active {
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .textmenu {
+@media screen and (max-width: 990px) {
+    .iconMobile {
+        display: block;
+    }
+
+    .DesktopMenu {
         display: none;
     }
 
-    .navbar_right {
-        gap: 35px;
+    .cart {
+        width: 250px;
     }
 }
 
 @media screen and (max-width: 770px) {
-    .navbar {
-        display: block;
-    }
-
     .navbar_left {
         justify-content: center;
     }
@@ -183,8 +209,20 @@ form button:active {
     .margimg {
         margin-left: 0px;
     }
+
+    .iconMobile {
+        width: 35px;
+    }
     
     .langimg {
         width: 40px;
+    }
+
+    .cart {
+        width: 200px;
+    }
+
+    .cartTitle {
+        display: block;
     }
 }

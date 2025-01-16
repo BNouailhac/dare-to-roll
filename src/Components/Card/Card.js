@@ -3,7 +3,8 @@ import React from 'react';
 import { motion } from "framer-motion";
 
 const Card = props => {
-    const { 
+    const {
+        lang,
         game,
         handleSelectGame
       } = props;
@@ -17,7 +18,7 @@ const Card = props => {
     return (
           <motion.div
             className={styles.card}
-            onClick={handleSelectGame}
+            onClick={() => {handleSelectGame(game.id)}}
             id={game.id}
             style={{ margin: 0, padding: 0 }}
             variants={variants}
@@ -31,7 +32,7 @@ const Card = props => {
                 <h2 className={styles.name}>{game.name}</h2>
                 <div style={{ display: 'ruby'}}>{game.price} €</div>
             </div>
-            <h3 className={styles.desc}>{game.shortdesc}</h3>
+            <h3 className={styles.desc}>{game.text[lang].shortdesc}</h3>
           </motion.div>
     );
   }

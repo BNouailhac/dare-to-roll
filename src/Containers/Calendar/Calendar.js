@@ -3,14 +3,20 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar';
 import AnimatedGamePage from '../AnimatedPage/AnimatedGamePage';
-import Grid from '@mui/material/Grid2';
-import Box from '@mui/material/Box';
 import EventsCard from '../../Components/EventsCard/EventsCard';
 import events from '../../utils/events';
 import { ReactComponent as Arrow } from "../../Resources/image/arrow.svg";
+import langue from './language/langue';
 
 const Calendar = props => {
   const {
+    seed,
+    lang,
+    updateLang,
+    cart,
+    handleSelectGame,
+    removeFromCart,
+    clearCart,
     handleHome,
     handleGame,
     handleMap,
@@ -23,6 +29,12 @@ const Calendar = props => {
   return (
     <>
       <NavBar
+        seed={seed}
+        lang={lang}
+        updateLang={updateLang}
+        cart={cart}
+        removeFromCart={removeFromCart}
+        clearCart={clearCart}
         handleHome={handleHome}
         handleGame={handleGame}
         handleMap={handleMap}
@@ -46,11 +58,12 @@ const Calendar = props => {
               >
                   <Arrow style={{ fill: "#cccccc" }} className={styles.arrow} />
               </button>
-              <h1> Retrouvez nous lors d'évènements pour tester nos jeux !</h1>
+              <h1>{langue[lang].title}</h1>
             </header>
             <div style={{ justifyContent: "center", display: 'grid', gap: '15px' }} >
               {events.map((event, index) => (
                 <EventsCard
+                  lang={lang}
                   event={event}
                   key={"event_" + index}
                 />

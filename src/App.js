@@ -9,23 +9,65 @@ import NotFound from './Containers/NotFound/NotFound';
 import Home from './Containers/Home/Home';
 import { AnimatePresence } from "framer-motion";
 import games from './utils/games';
-import templateGame from './utils/templateGame';
 
 function App() {
   const [allGames, setAllGames] = useState(games);
   const [selectedGame, setSelectedGame] = useState(false);
+  const [lang, setLang] = useState('en');
+  const [cart, setCart] = useState({games: [], quantity: 0, totalPrice: 0.00});
+  const [seed, resetCart] = useState(1);
 
 const navigate = useNavigate();
 const location = useLocation();
 
 if (location.pathname !== "/dare-to-roll/" && selectedGame === false) {
-  let surname = location.pathname.substring(29);
+  let surname = location.pathname.substring(7);
   let currentGame = games.find(game => game.surname === surname);
   if (currentGame !== undefined) {
     setSelectedGame(currentGame);
-  } else {
-    setSelectedGame(templateGame);
   }
+}
+
+const addToCart = (gameToAdd) => {
+  const index = cart.games.findIndex(game => game.game == gameToAdd.game);
+  let newCart = cart;
+  //cas où le jeu est déjà dans le panier
+  if (index !== -1) {
+    newCart.quantity -= cart.games[index].quantity;
+    newCart.totalPrice -= cart.games[index].totalPrice;
+    newCart.games[index] = gameToAdd;
+  } else {
+    newCart.games.push(gameToAdd);
+  }
+  newCart.quantity += gameToAdd.quantity;
+  newCart.totalPrice += gameToAdd.totalPrice;
+  newCart.totalPrice = Math.round(newCart.totalPrice * 100) / 100;
+  setCart(newCart);
+  resetCart(Math.random());
+}
+
+const removeFromCart = (gameID) => {
+  if (cart.games[gameID]){
+    let newCart = cart;
+    if (newCart.games[gameID].quantity != 0)
+      newCart.quantity -= newCart.games[gameID].quantity;
+    if (newCart.games[gameID].price != 0) {
+      newCart.totalPrice -= newCart.games[gameID].totalPrice;
+      newCart.totalPrice = Math.round(newCart.totalPrice * 100) / 100;
+    }
+    cart.games.splice(gameID, 1);
+    setCart(newCart);
+    resetCart(Math.random());
+  }
+}
+
+const clearCart = () => {
+  setCart({games: [], total: 0, totalPrice: 0});
+  resetCart(Math.random());
+}
+
+const updateLang = (langue) => {
+  setLang(langue);
 }
 
 const handleHome = () => {
@@ -48,18 +90,9 @@ const handleContact = () => {
   navigate('/contact/');
 }
 
-const handleSelectGame = (e) => {
-  if (e.target.tagName === "BUTTON") {
-    return
-  } else if (e.target.classList[0] !== "AddToCart_addToCart__zbJPe") {
-      if (e.target.parentNode?.id) {
-        navigate(`/games/${games[e.target.parentNode.id].surname}`);
-        setSelectedGame(games[e.target.parentNode.id]);
-      } else {
-        navigate(`/games/${games[e.target.offsetParent.id].surname}`);
-        setSelectedGame(games[e.target.offsetParent.id]);
-      }
-  }
+const handleSelectGame = (gameid) => {
+  navigate(`/games/${games[gameid].surname}`);
+  setSelectedGame(games[gameid]);
 }
 
 const openGamePage = (e) => {
@@ -70,28 +103,47 @@ const openGamePage = (e) => {
   return (
       <AnimatePresence exitBeforeEnter>
           <Routes key={location.pathname} location={location}>
-            <Route path="/dare-to-roll/" element={<Home 
-                                        handleHome={handleHome}
-                                        handleGame={handleGame}
-                                        handleMap={handleMap}
-                                        handleCalendar={handleCalendar}
-                                        handleContact={handleContact}
-                                        handleSelectGame={handleSelectGame}
-                                        openGamePage={openGamePage}
-                                      />} />
+            <Route path="/dare-to-roll/" element={<Home
+              seed={seed}
+              lang={lang}
+              updateLang={updateLang}
+              cart={cart}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
+              handleHome={handleHome}
+              handleGame={handleGame}
+              handleMap={handleMap}
+              handleCalendar={handleCalendar}
+              handleContact={handleContact}
+              handleSelectGame={handleSelectGame}
+              openGamePage={openGamePage}
+            />} />
             <Route path="/games/:gameId" element={<GamePage
-                                               handleSelectGame={handleSelectGame} 
-                                               selectedGame={selectedGame}
-                                               setSelectedGame={setSelectedGame}
-                                               handleHome={handleHome}
-                                               handleGame={handleGame}
-                                               handleMap={handleMap}
-                                               handleCalendar={handleCalendar}
-                                               handleContact={handleContact}
-                                               allGames={allGames}
-                                               openGamePage={openGamePage}
-                                            />} />
+              seed={seed}
+              lang={lang}
+              updateLang={updateLang}
+              cart={cart}
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
+              handleSelectGame={handleSelectGame} 
+              selectedGame={selectedGame}
+              setSelectedGame={setSelectedGame}
+              handleHome={handleHome}
+              handleGame={handleGame}
+              handleMap={handleMap}
+              handleCalendar={handleCalendar}
+              handleContact={handleContact}
+              allGames={allGames}
+              openGamePage={openGamePage}
+          />} />
             <Route path="/games/" element={<Games
+              seed={seed}
+              lang={lang}
+              updateLang={updateLang}
+              cart={cart}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
               handleSelectGame={handleSelectGame} 
               handleHome={handleHome}
               handleGame={handleGame}
@@ -100,6 +152,12 @@ const openGamePage = (e) => {
               handleContact={handleContact}
             />} />
             <Route path="/world/" element={<Map
+              seed={seed}
+              lang={lang}
+              updateLang={updateLang}
+              cart={cart}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
               handleSelectGame={handleSelectGame}
               handleHome={handleHome}
               handleGame={handleGame}
@@ -108,6 +166,13 @@ const openGamePage = (e) => {
               handleContact={handleContact}
             />} />
             <Route path="/calendar/" element={<Calendar
+              seed={seed}
+              lang={lang}
+              updateLang={updateLang}
+              cart={cart}
+              handleSelectGame={handleSelectGame}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
               handleHome={handleHome}
               handleGame={handleGame}
               handleMap={handleMap}
@@ -115,6 +180,13 @@ const openGamePage = (e) => {
               handleContact={handleContact}
             />} />
             <Route path="/contact/" element={<Contact
+              seed={seed}
+              lang={lang}
+              updateLang={updateLang}
+              cart={cart}
+              handleSelectGame={handleSelectGame}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
               handleHome={handleHome}
               handleGame={handleGame}
               handleMap={handleMap}
@@ -122,13 +194,19 @@ const openGamePage = (e) => {
               handleContact={handleContact}
             />} />
             <Route path="*" element={<NotFound
-                            handleHome={handleHome}
-                            handleGame={handleGame}
-                            handleMap={handleMap}
-                            handleCalendar={handleCalendar}
-                            handleContact={handleContact}
-                            openGamePage={openGamePage}
-          />} />
+              seed={seed}
+              lang={lang}
+              updateLang={updateLang}
+              cart={cart}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
+              handleHome={handleHome}
+              handleGame={handleGame}
+              handleMap={handleMap}
+              handleCalendar={handleCalendar}
+              handleContact={handleContact}
+              openGamePage={openGamePage}
+            />} />
           </Routes>
       </AnimatePresence>
   );

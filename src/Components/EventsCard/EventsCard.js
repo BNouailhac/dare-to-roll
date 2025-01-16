@@ -13,6 +13,7 @@ import location from "../../Resources/image/location.png";
 
 const EventsCard = props => {
   const {
+    lang,
     event
   } = props;
   
@@ -21,7 +22,7 @@ const EventsCard = props => {
         <Card sx={{ maxWidth: 550, borderRadius: '15px' }} onClick={() => window.location.replace(event.link)}>
             <CardActionArea>
               <Stack direction="row" spacing={1}>
-                <Chip className={styles.date} style={{ backgroundColor: '#dc361f', marginTop: '3px', marginRight: '3px', fontFamily: "GT Regular" }} label={event.date} variant="outlined" />
+                <Chip className={styles.date} style={{ backgroundColor: '#dc361f', marginTop: '3px', marginRight: '3px', fontFamily: "GT Regular" }} label={event.text[lang].date} variant="outlined" />
               </Stack>
                 <CardMedia
                 component="img"

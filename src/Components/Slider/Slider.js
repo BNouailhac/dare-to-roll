@@ -5,7 +5,6 @@ import { ReactComponent as Right } from "../../Resources/image/right.svg";
 import { useLocation } from 'react-router-dom';
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
-import templateGame from '../../utils/templateGame';
 
 const Slider = props => {
   const {
@@ -32,13 +31,6 @@ const Slider = props => {
     infinite: true,
     easing: "ease"
   };
-
-  const templateImages = [
-    templateGame.footage[0],
-    templateGame.footage[1],
-    templateGame.footage[2],
-    templateGame.footage[3]
-  ]
 
   const back = () => {
     if (carouselState > 0) {
@@ -78,18 +70,7 @@ const Slider = props => {
                   alt="sample" 
                 />
               </div>
-            )) : templateImages.map((each, index) => (
-              <div 
-                key={"templateimg_" + index} 
-                className={styles.slide}
-              >
-                <img 
-                  className={styles.currentImg} 
-                  src={each} 
-                  alt="sample" 
-                />
-              </div>
-            ))}
+            )) : <></>}
           </Slide>
     
             <button 
@@ -124,16 +105,7 @@ const Slider = props => {
                   aria-label="Jump to picture"
                 >
                 </button>
-              )) : templateImages.map((each, index) => (
-                <button 
-                  key={"templateimg2_" + index}
-                  id={index}
-                  onClick={jumpToIndex} 
-                  className={carouselState === index ? styles.buttonSelected : styles.button} 
-                  aria-label="Jump to picture"
-                >
-                </button>
-              ))}
+              )) : <></>}
             </div>
         </div>
   );
